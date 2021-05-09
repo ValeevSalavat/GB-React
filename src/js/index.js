@@ -1,11 +1,10 @@
-//import '../style/style.scss'
-// console.log("asdasd");
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const element = <h1 className="element">Кажется, мы подключили React</h1>;
+import MessageField from './components/MessageField'
 
 ReactDOM.render(
-    element,
+    <div>
+        <MessageField/>
+    </div>,
    document.getElementById('root'),
 );
