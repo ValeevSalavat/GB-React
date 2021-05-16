@@ -1,9 +1,70 @@
+@font-face {
+    font-family: Raleway-Medium;
+    src: url('../assets/fonts/raleway/Raleway-Medium.ttf');
+}
+@font-face {
+    font-family: Raleway-ExtraBold;
+    src: url('../assets/fonts/raleway/Raleway-ExtraBold.ttf');
+}
 body{
-    margin: 0;
+    margin:0;
     padding:0;
 }
+.message-field {
+   display: flex;
+   flex-direction: column;
+   background-color: #e2e2e2;
+   height: 50%;
+   width: 100%;
+   padding: 20px;
+   overflow-y: scroll;
+}
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+.header{
+    flex:0 1 100%;
+    padding: 20px 0;
+    margin:0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: aqua;
+    &__text{
+        display: inline;
+        color:rgb(26, 33, 34);
+        font-family: Raleway-ExtraBold, sans-serif;
+    }
+}
+.chatList{
+    flex:0 1 30%;
+    background-color: aquamarine;
+    font-family: Raleway-ExtraBold, sans-serif;
+}
 
-#root{
-    padding: 50px;
-    background-color: #fff;
+.messageField {
+   flex:0 1 70%;
+//    height: 100%;
+//    width: 50%;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+    background-color: rgb(91, 94, 93);
+    // border-radius: 30px;
+}
+
+.message {
+   background-color: lightblue;
+   font-family: Raleway-Medium, sans-serif;
+   padding: 5px 15px;
+   border-radius: 20px;
+   font-size: 18px;
+   margin: 5px;
+}
+
+.message-sender {
+   color: gray;
+   font-size: 14px;
 }
