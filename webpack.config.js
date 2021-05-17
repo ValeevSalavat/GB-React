@@ -29,17 +29,23 @@ module.exports = {
               "css-loader",
               "sass-loader",
             ],
-            test: /\.m?js$/,
+            // test: /\.m?js$/,
+            test:/\.(js|jsx)$/,
             include: path.resolve(__dirname, "src"),
             exclude: /(node_modules|bower_components)/,
             use: {
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env'],
-                presets: ['@babel/env', '@babel/react'],
+                  presets: ['@babel/preset-env',
+                            '@babel/react',{
+                            'plugins': ['@babel/plugin-proposal-class-properties']}]
               }
             }
           }
       ]
+  },
+  resolve: {
+       modules: [`${__dirname}/static_src`, 'node_modules'],
+       extensions: ['.js', '.jsx'],
   }
 };
