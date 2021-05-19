@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const miniCss = require('mini-css-extract-plugin');
 
 module.exports = {
   context: path.resolve(__dirname,'src'), 
@@ -18,18 +19,22 @@ module.exports = {
           filename:'./index.html',
           template:'./index.html'
       }),
-      new CleanWebpackPlugin()
+      new CleanWebpackPlugin(),
+      new miniCss({
+         filename: 'style.scss',
+      }),
   ],
   module: {
     rules: [
           {
-            test: /\.s[ac]ss$/i,
+            test:/\.(s*)css$/,
             use: [
               "style-loader",
               "css-loader",
               "sass-loader",
             ],
-            // test: /\.m?js$/,
+      },
+      {
             test:/\.(js|jsx)$/,
             include: path.resolve(__dirname, "src"),
             exclude: /(node_modules|bower_components)/,
@@ -41,8 +46,12 @@ module.exports = {
                             'plugins': ['@babel/plugin-proposal-class-properties']}]
               }
             }
-          }
-      ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+    ]
   },
   resolve: {
        modules: [`${__dirname}/static_src`, 'node_modules'],
